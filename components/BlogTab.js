@@ -8,7 +8,7 @@ const BlogTab = ({
   return (
     <div className="blog-tab" key={id}>
       <div className="img-content">
-        <img src="/image/0_0.jpg" alt="Profile" width={300} height={300} />
+        <img src={featuredImage.url} alt="Profile" width={300} height={300} />
       </div>
       <div className="text-content">
         <h2>{title}</h2>
