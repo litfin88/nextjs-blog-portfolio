@@ -1,34 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React.js - Next.js Fully Functional Portfolio/Blog Website
+With this repo, you can build yourself a beautiful portfolio, blog website.
+It is fully responsible and functional.
 
-## Getting Started
+## Get Started
+Continue by following the steps.
+After all of them it'll work for you!
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
+### Requirements
+```
+A CMS service (I recommend GraphCMS free version),
+A compiler (I recommend Visual Studio Code),
+Simple compiler, react.js and next.js information,
+Buymeacoffee.com account
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Create CMS Project
+First create 3 Schema named `Blog`, `Project` and `Achivements`
+After that go `Blog` schema and create:
+1. Single line text => Named: Title
+2. Single line text => Named: Category
+3. Slug => Named: Slug
+4. Rich text => Named: Content
+5. Multi line text => Named: Excerpt
+6. Asset picker => Named: Featured Image
+7. Single line text => Named: Tags (Check "Allow multiple values" option)
+Go Enumerations and add one Enumeration named Creators then add the names of the people who will write the blog later. 
+After that add to Blog schema:
+8. Dropdown => Named: Creator
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Then go to `Project` schema and create:
+1. Single line text => Named: Title
+2. Multi line text => Named: Description
+3. Asset picker => Named: Image
+4. Single line text => Named: Source
+5. Single line text => Named: Tags (Check "Allow multiple values" option)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Then go to `Achivements` schema and create:
+1. Single line text => Named: Name
+2. Single line text => Named: Year
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+After all of them go `Project Settings` > `API Access` from left bar and answer the "Would you like us to initialize some defaults?" question by clicking the "Yes, initialize defaults" button. (for GraphCMS service)
 
-## Learn More
+> I recommend that create some content after this process for see it's running well 😊.
 
-To learn more about Next.js, take a look at the following resources:
+### Open Project and Start to Regulations
+Download and unzip project to anywhere you want, then open Visual Studio Code and open your folder.
+Go to `.env.local` file (if you don't have create it) and put your API key there from API Access panel.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![localenv](https://i.ibb.co/5FvRLsc/envlocal.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+After that go to `Pages`>`index.js` file and edit the section below the comment sections.
+Check other `.js` files from `Pages` section and change them for your informations.
 
-## Deploy on Vercel
+For example:
+![example](https://i.ibb.co/cwbW1MJ/green.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Testing and Deploying
+Go terminal, type `npm run dev` and click enter.
+Open your browser and go `http://localhost:3000` (the port can be different for you it's 3000 usually).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+And see what's working and what's not. If you have to change somewhere you can edit the files from Visual Studio Code.
+For deploying, if you are still in developer mode; go to terminal and press `CTRL + C` after that press `Y`.
+Type `npm run build` to your terminal and click enter. If everything will go correct, you will see an `out` folder in your project.
+
+>This folder will contain your base files to deploy your website. Copy them to your hosting or Apache server directly.
+
+That's it! Congratulations you've got your portfolio/blog website. 🎉🎉🎉
+
+If you have some trouble you can contact me with [this](https://t.me/scalebit) telegram link or *krsn.emirhan@gmail.com* email address.

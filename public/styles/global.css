@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+::-moz-selection { /* Code for Firefox */
+color: white;
+background: rgba(248,0,255,1);
+}
+
+::selection {
+color: white;
+background: rgba(248,0,255,1);
+}
+
+:root {
+/* Your default theme */
+--background: #f5f6fa;
+--back-content: #e6e7eb;
+--back-header: #fff;
+--foreground: #2f3640;;
+--lightpass: #353b48;
+}
+
+[data-theme='dark'] {
+--background: #111827;
+--back-content: #192338;
+--back-header: #243352;
+--foreground: white;
+--lightpass: #f5f6fa;
+}
+
+*{
+    font-family: Montserrat;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    border: 0;
+    box-sizing: border-box;
+}
+
+a,p{
+    font-size:1.125em;
+    color: var(--foreground);
+}
+
+h1{
+    font-size:2.25em;
+    color: var(--foreground);
+}
+
+html, body{
+    height: 100%;
+}
+
+body{
+    background: var(--background);
+}
+
+.content {
+    margin: 0 auto;
+    width: 965px;
+    max-width: 90%;
+    padding-top: 8%;
+    padding-bottom: 150px;
+}
+
+.disclaimer{
+    display:none !important;
+}
