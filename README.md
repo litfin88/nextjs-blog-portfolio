@@ -44,6 +44,8 @@ After all of them go `Project Settings` > `API Access` from left bar and answer 
 > I recommend that create some content after this process for see it's running well 😊.
 
 ### Open Project and Start to Regulations
+Fork this project,
+
 Download and unzip project to anywhere you want, then open Visual Studio Code and open your folder.
 Go to `.env.local` file (if you don't have create it) and put your API key there from API Access panel.
 
@@ -54,6 +56,8 @@ Check other `.js` files from `Pages` section and change them for your informatio
 
 For example:
 ![example](https://i.ibb.co/cwbW1MJ/green.png)
+
+After changes don't forget to fetch your data.
 
 ### Testing and Deploying
 Go terminal, type `npm run dev` and click enter.

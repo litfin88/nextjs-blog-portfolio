@@ -55,6 +55,10 @@ const BlogTab = ({
             @media (pointer: none), (pointer: coarse) {
               width: 100%;
             }
+
+            img{
+              object-fit: cover;
+            }
           }
 
           .text-content {
