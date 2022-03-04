@@ -70,5 +70,6 @@ Type `npm run build` to your terminal and click enter. If everything will go cor
 >This folder will contain your base files to deploy your website. Copy them to your hosting or Apache server directly.
 
 That's it! Congratulations you've got your portfolio/blog website. 🎉🎉🎉
+Live Demo: https://nextjs-blog-portfolio.vercel.app/
 
 If you have some trouble you can contact me with [this](https://t.me/scalebit) telegram link or *krsn.emirhan@gmail.com* email address.
