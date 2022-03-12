@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 export default function App({ Component, pageProps }) {
     const router = useRouter();
 
-    if(router.pathname != "/" )
+    if(router.pathname != "/" && router.pathname != "/no-source")
     return (<>
         <ThemeProvider>
             <Head>

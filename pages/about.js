@@ -13,6 +13,7 @@ export default function about({ achivements }){
         <div>
             <Head>
                 <title>About Me - Emirhan Kursun</title>
+                <meta name="robots" content="index, follow" />
                 <link
                 rel="icon"
                 type="image/x-icon"

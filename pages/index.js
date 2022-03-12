@@ -39,6 +39,8 @@ export default function Home() {
     <div>
       <Head>
         <title>Portfolio - Main Page</title>
+        <meta name="description" content="With this website, you can have information about me and browse my blogs." />
+        <meta name="robots" content="index, follow" />
 
         {/* If you have a logo, write it in this section. "emirhank.png" is the logos for the white theme,
         "emirhank_white.png" is the logos for the black theme.

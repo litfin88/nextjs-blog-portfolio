@@ -11,9 +11,11 @@ export const getAllProjects = async () => {
         image {
           url
         }
+        projectType
         tags
         createdAt
         source
+        demo
       }
     } 
     `

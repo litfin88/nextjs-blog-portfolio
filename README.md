@@ -24,7 +24,7 @@ After that go `Blog` schema and create:
 5. Multi line text => Named: Excerpt
 6. Asset picker => Named: Featured Image
 7. Single line text => Named: Tags (Check "Allow multiple values" option)
-Go Enumerations and add one Enumeration named Creators then add the names of the people who will write the blog later. 
+Go Enumerations and add one Enumeration named `Creators` then add the names of the people who will write the blog later.
 After that add to Blog schema:
 8. Dropdown => Named: Creator
 
@@ -33,7 +33,11 @@ Then go to `Project` schema and create:
 2. Multi line text => Named: Description
 3. Asset picker => Named: Image
 4. Single line text => Named: Source
-5. Single line text => Named: Tags (Check "Allow multiple values" option)
+5. Single line text => Named: Demo (for your project' demo link)
+Create one more enumeration and name it `PostCategory` then add variables for your project tags, like `Game`, `Active`, `Simple`. You will add your projects to this headers.
+After that add to Projects schema:
+6. Dropdown menu => Named: Project Type
+7. Single line text => Named: Tags (Check "Allow multiple values" option)
 
 Then go to `Achivements` schema and create:
 1. Single line text => Named: Name
@@ -57,7 +61,7 @@ Check other `.js` files from `Pages` section and change them for your informatio
 For example:
 ![example](https://i.ibb.co/cwbW1MJ/green.png)
 
-After changes don't forget to fetch your data.
+After changes don't forget to commit your data.
 
 ### Testing and Deploying
 Go terminal, type `npm run dev` and click enter.
@@ -67,7 +71,7 @@ And see what's working and what's not. If you have to change somewhere you can e
 For deploying, if you are still in developer mode; go to terminal and press `CTRL + C` after that press `Y`.
 Type `npm run build` to your terminal and click enter. If everything will go correct, you will see an `out` folder in your project.
 
->This folder will contain your base files to deploy your website. Copy them to your hosting or Apache server directly.
+>This folder will contain your base files to deploy your website. Copy them to your hosting or Apache server directly. (I recommend Vercel app for deploying)
 
 That's it! Congratulations you've got your portfolio/blog website. 🎉🎉🎉
 Live Demo: https://nextjs-blog-portfolio.vercel.app/

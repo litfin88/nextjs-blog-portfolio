@@ -1,16 +1,20 @@
 import React from "react";
 
 const projectCard = ({
-  project: { title, description, image, source, tags },
+  project: { title, description, image, source, tags, demo },
 }) => {
   return (
     <>
-      <div className="project_card" onClick={()=>window.open(source, "_blank")}>
-        <img src={image.url} alt="asd" />
+      <div className="project_card">
+        <img src={image.url} alt="Project image" />
         <h3>{title}</h3>
         <p>{description}</p>
+        <div style={{marginTop: 20}}>
+          {source != ""?<button className="continue-button" onClick={()=>window.open(source, "_blank")}>Source</button>:<></>}
+          {demo != ""?<button className="continue-button" onClick={()=>window.open(demo, "_blank")}>Demo</button>:<></>}
+        </div>
         {tags.map(tag=>(
-            <b className="tag_holder">{tag}</b>
+            <b className="tag_holder">-{tag}-</b>
         ))}
       </div>
       <style jsx>{`
@@ -25,7 +29,6 @@ const projectCard = ({
             text-align:left;
             padding: 20px;
             margin:0 auto;
-            cursor: pointer;
 
             @media (pointer: none), (pointer: coarse) {
                 width: 400px;
@@ -33,7 +36,7 @@ const projectCard = ({
 
             &:hover{
                 transition:100ms all;
-                transform: translate(0, -5px);
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
             }
 
             img{
@@ -53,14 +56,34 @@ const projectCard = ({
             }
 
             .tag_holder{
-                background: gray;
-                border-radius:5px;
-                padding:5px 15px;
+                border-radius:100px;
+                padding-right:10px;
+                opacity:0.8;
                 float:left;
-                font-weight:600;
-                margin-top:20px;
+                font-weight:500;
+                font-size:14px;
                 margin-right:5px;
+                color: var(--foreground);
+                margin-top:20px;
+            }
+
+            .continue-button{
+                transition: 200ms all;
+                padding: 10px 20px;
+                border-radius: 50px;
                 color: white;
+                font-weight:500;
+                box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+                background: linear-gradient(90deg, rgba(248,0,255,1) 0%, rgba(169,48,212,1) 49%, rgba(132,0,255,1) 100%);
+                margin-right:10px;
+                font-size:16px;
+                cursor: pointer;
+
+                &:hover{
+                    transition: 400ms all;
+                    transform: translate(0, -3px);
+                    margin-bottom:0;
+                }
             }
         }
 

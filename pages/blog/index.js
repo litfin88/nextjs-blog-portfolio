@@ -25,7 +25,7 @@ const Home = ({blogs}) => {
             </Head>
 
             <div>
-                {blogs.map(blog=>(
+                {blogs.reverse().map(blog=>(
                     <BlogTab key={blog.id} blog={blog} />
                 ))}
             </div>
