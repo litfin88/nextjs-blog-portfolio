@@ -4,15 +4,7 @@ import { FaInstagram } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
 import Skill from "../components/Skill";
-import { groq } from "next-sanity";
-import { getClient } from "../utils/sanity";
-
-const query = groq`*[_type == "achivs"]{
-    _id,
-    achivement,
-    year,
-    createdAt,
-  }`;
+import { getAllAchivements } from "../functions/getAllAchivements";
 
 export default function about({ achivements }){
     const { theme, setTheme } = useTheme();
@@ -95,9 +87,9 @@ export default function about({ achivements }){
                     <Skill name="ui design" percent={90} />
                 </div>
                 <h2 style={{margin: "40px 0 20px 0"}}>- ACHIVEMENTS -</h2>
-                {achivements.map(achiv => (
-                    <div className="achivement_tab" key={achiv._id}>
-                        <p>{achiv.achivement}</p>
+                {achivements.reverse().map(achiv => (
+                    <div className="achivement_tab" key={achiv.id}>
+                        <p>{achiv.name}</p>
                         <p style={{fontSize: "0.8em"}}>({achiv.year})</p>
                     </div>
                 ))}
@@ -243,13 +235,11 @@ export default function about({ achivements }){
     )
 }
 
-export async function getStaticProps() {
-    let response = await getClient().fetch(query);
-  
+export const getStaticProps = async () => {
+    const achivements = (await getAllAchivements()) || [];
     return {
-      props: {
-        achivements: response || null,
-      },
-      revalidate: 5,
-    };
-  }
+        props: {
+            achivements
+        },
+    }
+}
