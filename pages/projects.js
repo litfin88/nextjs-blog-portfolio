@@ -1,10 +1,23 @@
-import { getAllProjects } from "../functions/getAllProjects";
 import Head from "next/head";
 import { useTheme } from "next-themes";
 import ProjectCard from "../components/ProjectCard";
 import { useState } from "react";
+import { groq } from "next-sanity";
+import { getClient } from "../utils/sanity";
 
-export default function ProjectsPage({projects}) {
+const query = groq`*[_type == "project"]{
+    _id,
+    title,
+    description,
+    "image": image.asset->url,
+    projectType,
+    tags,
+    _createdAt,
+    source,
+    demo,
+  }`;
+
+export default function ProjectsPage({project}) {
     const { theme, setTheme } = useTheme();
     const [ header, setHeader ] = useState("");
 
@@ -36,7 +49,7 @@ export default function ProjectsPage({projects}) {
             {console.log(header)}
             <div className="content">
                 <div className="project_loc">
-                    {projects.map(projectHeader =>
+                    {project.map(projectHeader =>
                         {header.includes(projectHeader.projectType)?<></>:addHeader(projectHeader.projectType)}
                     )}
 
@@ -44,8 +57,8 @@ export default function ProjectsPage({projects}) {
                         <>
                             <h2>{hdr} Projects</h2>
                             <div>
-                            {projects.map(project => (
-                                project.projectType === hdr?<ProjectCard key={project.id} project={project} />:<></>
+                            {project.map(project => (
+                                project.projectType === hdr?<ProjectCard key={project._id} project={project} />:<></>
                             ))}
                             </div>
                         </>
@@ -80,11 +93,13 @@ export default function ProjectsPage({projects}) {
     );
 }
 
-export const getStaticProps = async () => {
-    const projects = await getAllProjects();
+export async function getStaticProps() {
+    let response = await getClient().fetch(query);
+  
     return {
-        props: {
-            projects
-        },
-    }
-}
+      props: {
+        project: response || null,
+      },
+      revalidate: 5,
+    };
+  }

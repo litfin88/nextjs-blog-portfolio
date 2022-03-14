@@ -3,12 +3,12 @@ import moment from "moment";
 import Link from "next/link";
   
 const BlogTab = ({
-  blog: { id, title, slug, content, featuredImage, tags, createdAt, excerpt, creator },
+  blog: { id, title, slug, content, image, tags, createdAt, excerpt, creator },
 }) => {
   return (
     <div className="blog-tab" key={id}>
       <div className="img-content">
-        <img src={featuredImage.url} alt="Profile" width={300} height={300} />
+        <img src={image} alt="Profile" width={300} height={300} />
       </div>
       <div className="text-content">
         <h2>{title}</h2>
@@ -18,7 +18,7 @@ const BlogTab = ({
             <p className="created" style={{opacity: "0.5", marginTop: "10px", fontSize:"1em"}}>{moment(createdAt).fromNow() + " from " + creator}</p>
         </div>
         <div className="button-div">
-            <Link href={`/blog/post/${slug}`}>
+            <Link href={`/blog/post/${slug.current}`}>
                 <span className="continue-button">
                     Continue Reading
                 </span>

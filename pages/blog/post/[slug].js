@@ -1,75 +1,30 @@
 import React from "react";
-import { getBlogSlugs } from "../../../functions/getAllBlogs";
-import { getBlogDetails } from "../../../functions/getBlogDetails";
 import Head from "next/head";
 import { useTheme } from "next-themes";
 import moment from "moment";
+import { groq } from "next-sanity";
+import { getClient } from "../../../utils/sanity";
 
-const getContentFragment = (index, text, obj, type) => {
-  let modifiedText = text;
-
-  if (obj) {
-    if (obj.bold) {
-      modifiedText = <b key={index}>{text}</b>;
-    }
-
-    if (obj.italic) {
-      modifiedText = <em key={index}>{text}</em>;
-    }
-
-    if (obj.underline) {
-      modifiedText = <u key={index}>{text}</u>;
-    }
-  }
-
-  switch (type) {
-    case "heading-three":
-      return (
-        <h3 key={index} style={{ margin: "20px 0", fontFamily: "Open Sans" }}>
-          {modifiedText.map((item, i) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
-        </h3>
-      );
-    case "paragraph":
-      return (
-        <p key={index} style={{ margin: "20px 0", fontFamily: "Open Sans" }}>
-          {modifiedText.map((item, i) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
-        </p>
-      );
-    case "heading-four":
-      return (
-        <h4 key={index} style={{ margin: "20px 0", fontFamily: "Open Sans" }}>
-          {modifiedText.map((item, i) => (
-            <React.Fragment key={i}>{item}</React.Fragment>
-          ))}
-        </h4>
-      );
-    case "image":
-      return (
-        <img
-          key={index}
-          alt={obj.title}
-          height={obj.height}
-          width={obj.width}
-          src={obj.src}
-        />
-      );
-    default:
-      return modifiedText;
-  }
-};
-
-const PostDetails = ({ blogs }) => {
+const PostDetails = ({ blog }) => {
   const { theme, setTheme } = useTheme();
 
+  const correctType = (text) => {
+    let curText = text;
+    let textArray = curText.split("\n")
+
+    return (
+    textArray.map(txt => (
+      <>
+        <p>{txt}</p>
+        <br />
+      </>
+    )))
+  }
   return (
     <div className="content">
       <Head>
-        <title>{blogs[0].title}</title>
-        <meta name="description" content={blogs[0].excerpt} />
+        <title>{blog[0].title}</title>
+        <meta name="description" content={blog[0].excerpt} />
         
         {/* If you have a logo, write it in this section. "emirhank.png" is the logos for the white theme,
         "emirhank_white.png" is the logos for the black theme.
@@ -84,20 +39,14 @@ const PostDetails = ({ blogs }) => {
         />
       </Head>
       <div className="main-content">
-        <img src={blogs[0].featuredImage.url} width="100%" />
-        <p style={{fontSize: "0.9em", color: "#f800ff", fontWeight: "600", marginTop: "10px"}}>{blogs[0].category}</p>
-        <h2 style={{margin: "10px 0 5px 0"}}>{blogs[0].title}</h2>
-        <p style={{opacity: "0.5", marginBottom: "20px", fontSize:"0.9em", fontFamily: "Open Sans"}}>{moment(blogs[0].createdAt).fromNow() + " from " + blogs[0].creator}</p>
-        {blogs[0].content.raw.children.map((typeObj, index) => {
-          const children = typeObj.children.map((item, itemIndex) =>
-            getContentFragment(itemIndex, item.text, item)
-          );
-
-          return getContentFragment(index, children, typeObj, typeObj.type);
-        })}
+        <img src={blog[0].image} width="100%" />
+        <p style={{fontSize: "0.9em", color: "#f800ff", fontWeight: "600", marginTop: "10px"}}>{blog[0].category}</p>
+        <h2 style={{margin: "10px 0 5px 0"}}>{blog[0].title}</h2>
+        <p style={{opacity: "0.5", marginBottom: "20px", fontSize:"0.9em", fontFamily: "Open Sans"}}>{moment(blog[0].createdAt).fromNow() + " from " + blog[0].creator}</p>
+        <div>{correctType(blog[0].content)}</div>
         <h4>Tags</h4>
         <div style={{display: "flex"}}>
-        {blogs[0].tags.map(tag=>(
+        {blog[0].tags.map(tag=>(
           <p className="tag-holder">{tag}</p>
         ))}
         </div>
@@ -145,22 +94,56 @@ const PostDetails = ({ blogs }) => {
   );
 };
 
-export async function getStaticProps ({ params }) {
-    const blogs = await getBlogDetails(params.slug);
+export async function getStaticProps({params}) {
+  const query = groq`*[_type == "blog" && slug.current == $slug]{
+    id,
+    title,
+    slug,
+    category,
+    content,
+    excerpt,
+    "image": image.asset->url,
+    tags,
+    createdAt,
+    creator,
+  }`;
+
+  const post = await getClient().fetch(query, {
+    slug: params.slug
+  });
+
+  if (!post) {
     return {
-        props: {
-            blogs
-        },
+      notFound: true
     }
+  }
+
+  return {
+    props: {
+      blog: post
+    }
+  }
 }
 
 export async function getStaticPaths(){
-  const slugsRes = await getBlogSlugs();
-  const slugs = slugsRes.blogs;
+  const query2 = `*[_type == blog]{
+    _id,
+    slug {
+      current
+    }
+  }`;
+
+  const posts = await getClient().fetch(query2)
+
+  const paths = posts.map(post => ({
+    params: {
+      slug: post.slug.current
+    }
+  }));
 
   return {
-    paths: slugs.map((slug) => ({ params: { slug: slug.slug } })),
-    fallback: false,
+    paths,
+    fallback: 'blocking'
   }
 }
 

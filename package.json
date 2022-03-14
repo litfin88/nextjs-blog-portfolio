@@ -1,16 +1,20 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build && next export",
+    "dev": "concurrently \"next dev\" \"cd devportfolio && sanity start\"",
+    "build": "echo 'Building Sanity to public/devportfolio…' && cd devportfolio && sanity build ../public/devportfolio -y && cd .. && cross-env NODE_ENV=production next build",
     "start": "next start"
   },
   "dependencies": {
+    "@portabletext/react": "^1.0.4",
+    "@sanity/image-url": "^1.0.1",
     "@styled-jsx/plugin-sass": "^4.0.2",
+    "concurrently": "^7.0.0",
+    "cross-env": "^7.0.3",
     "framer-motion": "^6.2.8",
-    "graphql-request": "^4.0.0",
     "moment": "^2.29.1",
     "next": "^12.1.0",
+    "next-sanity": "^0.5.1",
     "next-themes": "^0.1.1",
     "nextjs-progressbar": "^0.0.14",
     "react": "^17.0.2",

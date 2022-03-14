@@ -1,9 +1,23 @@
 import BlogTab from "../../components/BlogTab";
-import { getAllBlogs } from "../../functions/getAllBlogs";
 import Head from "next/head";
 import { useTheme } from "next-themes";
+import { groq } from "next-sanity";
+import { getClient } from "../../utils/sanity";
 
-const Home = ({blogs}) => {
+const query = groq`*[_type == "blog"]{
+    _id,
+    title,
+    slug,
+    category,
+    content,
+    excerpt,
+    "image": image.asset->url,
+    tags,
+    createdAt,
+    creator,
+  }`;
+
+const Home = ({blog}) => {
     const { theme, setTheme } = useTheme();
 
     return (
@@ -25,8 +39,8 @@ const Home = ({blogs}) => {
             </Head>
 
             <div>
-                {blogs.reverse().map(blog=>(
-                    <BlogTab key={blog.id} blog={blog} />
+                {blog.reverse().map(blogC=>(
+                    <BlogTab key={blogC._id} blog={blogC} />
                 ))}
             </div>
 
@@ -42,13 +56,15 @@ const Home = ({blogs}) => {
     );
 }
 
-export const getStaticProps = async () => {
-    const blogs = await getAllBlogs();
+export async function getStaticProps() {
+    let response = await getClient().fetch(query);
+  
     return {
-        props: {
-            blogs
-        },
-    }
-}
+      props: {
+        blog: response || null,
+      },
+      revalidate: 5,
+    };
+  }
 
 export default Home;

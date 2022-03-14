@@ -8,52 +8,189 @@ After all of them it'll work for you!
 
 ### Requirements
 ```
-A CMS service (I recommend GraphCMS free version),
+A CMS service (I recommend Sanity free version),
 A compiler (I recommend Visual Studio Code),
 Simple compiler, react.js and next.js information,
 Buymeacoffee.com account
 ```
 
 ### Create CMS Project
-First create 3 Schema named `Blog`, `Project` and `Achivements`
-After that go `Blog` schema and create:
-1. Single line text => Named: Title
-2. Single line text => Named: Category
-3. Slug => Named: Slug
-4. Rich text => Named: Content
-5. Multi line text => Named: Excerpt
-6. Asset picker => Named: Featured Image
-7. Single line text => Named: Tags (Check "Allow multiple values" option)
-Go Enumerations and add one Enumeration named `Creators` then add the names of the people who will write the blog later.
-After that add to Blog schema:
-8. Dropdown => Named: Creator
+Register sanity with this link https://www.sanity.io/get-started
 
-Then go to `Project` schema and create:
-1. Single line text => Named: Title
-2. Multi line text => Named: Description
-3. Asset picker => Named: Image
-4. Single line text => Named: Source
-5. Single line text => Named: Demo (for your project' demo link)
-Create one more enumeration and name it `PostCategory` then add variables for your project tags, like `Game`, `Active`, `Simple`. You will add your projects to this headers.
-After that add to Projects schema:
-6. Dropdown menu => Named: Project Type
-7. Single line text => Named: Tags (Check "Allow multiple values" option)
+Generate Sanity files in your project with this type:
+`npm install -g @sanity/cli && sanity init`
 
-Then go to `Achivements` schema and create:
-1. Single line text => Named: Name
-2. Single line text => Named: Year
+Connect your account and fill project name to devportfolio
+(don't change "product" name)
 
-After all of them go `Project Settings` > `API Access` from left bar and answer the "Would you like us to initialize some defaults?" question by clicking the "Yes, initialize defaults" button. (for GraphCMS service)
+Fill other blanks
 
-> I recommend that create some content after this process for see it's running well 😊.
+After that go your Sanity folder > schemas > schema.js,
+paste this:
+
+```
+// First, we must import the schema creator
+import createSchema from "part:@sanity/base/schema-creator";
+
+// Then import schema types from any plugins that might expose them
+import schemaTypes from "all:part:@sanity/base/schema-type";
+
+// Then we give our schema to the builder and provide the result to Sanity
+export default createSchema({
+  // We name our schema
+  name: "default",
+  // Then proceed to concatenate our document type
+  // to the ones provided by any plugins that are installed
+  types: schemaTypes.concat([
+    /* Your types here! */
+    {
+      title: "Achivs",
+      name: "achivs",
+      type: "document",
+      fields: [
+        {
+          title: "Achivement",
+          name: "achivement",
+          type: "string",
+        },
+        {
+          title: "Year",
+          name: "year",
+          type: "string",
+        },
+      ],
+    },
+    {
+      title: "Blog",
+      name: "blog",
+      type: "document",
+      fields: [
+        {
+          title: "Title",
+          name: "title",
+          type: "string",
+        },
+        {
+          title: "Category",
+          name: "category",
+          type: "string",
+        },
+        {
+          title: "Slug",
+          name: "slug",
+          type: "slug",
+        },
+        {
+          title: "Content",
+          name: "content",
+          type: "text",
+        },
+        {
+          title: "Excerpt",
+          name: "excerpt",
+          type: "string",
+        },
+        {
+          title: "Image",
+          name: "image",
+          type: "image",
+        },
+        {
+          title: "Tags",
+          name: "tags",
+          type: "array",
+          of: [{type: 'string'}]
+        },
+        {
+          title: "Creator",
+          name: "creator",
+          type: "string",
+          options: {
+            list: [
+              {title: 'Emirhan Kursun', value: 'Emirhan Kursun'},
+            ], // <-- predefined values
+            layout: 'radio' // <-- defaults to 'dropdown'
+          }
+        },
+      ],
+    },
+    {
+      title: "Project",
+      name: "project",
+      type: "document",
+      fields: [
+        {
+          title: "Title",
+          name: "title",
+          type: "string",
+        },
+        {
+          title: "Description",
+          name: "description",
+          type: "string",
+        },
+        {
+          title: "Image",
+          name: "image",
+          type: "image",
+        },
+        {
+          title: "Source",
+          name: "source",
+          type: "url",
+        },
+        {
+          title: "Demo",
+          name: "demo",
+          type: "url",
+        },
+        {
+          title: "Tags",
+          name: "tags",
+          type: "array",
+          of: [{type: 'string'}]
+        },
+        {
+          title: "Project Type",
+          name: "projectType",
+          type: "string",
+          options: {
+            list: [
+              {title: 'Game', value: 'Game'},
+              {title: 'Active', value: 'Active'},
+              {title: 'Simple', value: 'Simple'},
+            ], // <-- predefined values
+            layout: 'radio' // <-- defaults to 'dropdown'
+          }
+        },
+      ],
+    },
+  ]),
+});
+```
+
+Then create `.env` file to your root folder and paste this (if you deploy on Vercel App, you will type this 2 value to environment values):
+
+```
+# For Studio Locally
+SANITY_STUDIO_API_PROJECT_ID = "YOUR_PROJECT_ID_FROM_SANITY_WEBSITE"
+SANITY_STUDIO_API_DATASET = "production"
+
+# For Next Locally
+NEXT_PUBLIC_SANITY_PROJECT_ID = "YOUR_PROJECT_ID_FROM_SANITY_WEBSITE"
+NEXT_PUBLIC_SANITY_DATASET = "production"
+```
+
+NOTE: Change inside of apostrophe to your project id.
+
+Then;
+
+Go to `your.domain/studio/desk`, create contents.
 
 ### Open Project and Start to Regulations
 Fork this project,
 
 Download and unzip project to anywhere you want, then open Visual Studio Code and open your folder.
-Go to `.env.local` file (if you don't have create it) and put your API key there from API Access panel.
-
-![localenv](https://i.ibb.co/5FvRLsc/envlocal.png)
 
 After that go to `Pages`>`index.js` file and edit the section below the comment sections.
 Check other `.js` files from `Pages` section and change them for your informations.

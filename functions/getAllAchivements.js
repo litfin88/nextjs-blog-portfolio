@@ -1,5 +1,4 @@
-import { gql } from "graphql-request";
-import { graphcms } from "../client";
+import { groq } from "next-sanity";
 
 export const getAllAchivements = async () => {
     const getAllAchivementsQuery = gql`
