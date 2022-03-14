@@ -7,6 +7,7 @@
   },
   "dependencies": {
     "@portabletext/react": "^1.0.4",
+    "@sanity/cli": "^2.28.0",
     "@sanity/image-url": "^1.0.1",
     "@styled-jsx/plugin-sass": "^4.0.2",
     "concurrently": "^7.0.0",
