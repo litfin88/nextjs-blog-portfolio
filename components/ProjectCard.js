@@ -6,7 +6,7 @@ const projectCard = ({
   return (
     <>
       <div className="project_card">
-        <img src={image} alt="Project image" />
+        <img src={image.url} alt="Project image" />
         <h3>{title}</h3>
         <p>{description}</p>
         <div style={{marginTop: 20}}>
