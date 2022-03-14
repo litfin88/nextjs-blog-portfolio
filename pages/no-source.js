@@ -32,6 +32,12 @@ export default function noSource() {
         </div>
 
         <style jsx>{`
+            .content{
+                @media (pointer: none), (pointer: coarse) {
+                    width: 90%;
+                    margin-top: 80px;
+                }
+            }
 
             .continue-button{
                 transition: 200ms all;
