@@ -15,7 +15,7 @@ Buymeacoffee.com account
 ```
 
 ### Create CMS Project
-First create 3 Schema named `Blog`, `Project` and `Achivements`
+First create 3 Schema named `Blog`, `Project`, `Certificates` and `Achivements`
 After that go `Blog` schema and create:
 1. Single line text => Named: Title
 2. Single line text => Named: Category
@@ -39,6 +39,11 @@ After that add to Projects schema:
 6. Dropdown menu => Named: Project Type
 7. Single line text => Named: Tags (Check "Allow multiple values" option)
 
+Then go to `Certificates` schema and create:
+1. Asset picker => Named: Image
+2. Single line text => Named: Certificate Name
+3. Multi line text => Named: Certificate Description
+
 Then go to `Achivements` schema and create:
 1. Single line text => Named: Name
 2. Single line text => Named: Year
@@ -48,7 +53,7 @@ After all of them go `Project Settings` > `API Access` from left bar and answer 
 > I recommend that create some content after this process for see it's running well 😊.
 
 ### Open Project and Start to Regulations
-Fork this project,
+Clone this project,
 
 Download and unzip project to anywhere you want, then open Visual Studio Code and open your folder.
 Go to `.env.local` file (if you don't have create it) and put your API key there from API Access panel.

@@ -109,7 +109,7 @@ export default function Home() {
               // Navigate the site with the navigation buttons.
             </p>
             <br />
-            <p style={{ color: "#808080" }}>// Thanks</p>
+            <p style={{ color: "#808080" }}>`<a href="/certificates" style={{color: "#2c2aa3", fontFamily: "Fira Code", textDecoration: "none", fontSize: "18px"}}>{"${"}<a style={{color: "#499fd6"}}>Click</a>{"}"}</a>` // to see my certificates, thanks.</p>
             <br />
             <p className="waiting_for_write">|</p>
           </div>
@@ -239,6 +239,8 @@ export default function Home() {
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
             float: left;
             margin-right: 10px;
+            position: relative;
+            z-index: 2;
 
             p {
               font-size: 25px;
@@ -278,6 +280,8 @@ export default function Home() {
             padding: 30px;
             padding-right: 100px;
             box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            position: relative;
+            z-index: 2;
           }
         `}
       </style>
