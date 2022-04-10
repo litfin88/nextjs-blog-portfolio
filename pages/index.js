@@ -3,6 +3,7 @@ import Head from "next/head";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
 import Typical from "react-typical";
+import Link from "next/link";
 import {
   FaInstagram,
   FaTelegram,
@@ -109,7 +110,7 @@ export default function Home() {
               // Navigate the site with the navigation buttons.
             </p>
             <br />
-            <p style={{ color: "#808080" }}>`<a href="/certificates" style={{color: "#2c2aa3", fontFamily: "Fira Code", textDecoration: "none", fontSize: "18px"}}>{"${"}<a style={{color: "#499fd6"}}>Click</a>{"}"}</a>` // to see my certificates, thanks.</p>
+            <p style={{ color: "#808080" }}>`<Link href="/certificates"><a style={{color: "#2c2aa3", fontFamily: "Fira Code", textDecoration: "none", fontSize: "18px"}}>{"${"}<a style={{color: "#499fd6"}}>Click</a>{"}"}</a></Link>` // to see my certificates, thanks.</p>
             <br />
             <p className="waiting_for_write">|</p>
           </div>
