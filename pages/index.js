@@ -60,7 +60,7 @@ export default function Home() {
       <div className="content">
         <div className="ball1">
           <motion.img
-            src="/image/ball-1.svg"
+            src="/image/ball-1.png"
             alt="ball-1"
             whileHover={{ y: -10, rotate: 45, transition: { duration: 0.4 } }}
             drag
@@ -70,7 +70,7 @@ export default function Home() {
 
         <div className="ball2">
           <motion.img
-            src="/image/ball-2.svg"
+            src="/image/ball-2.png"
             alt="ball-2"
             whileHover={{ y: -10, rotate: 45, transition: { duration: 0.4 } }}
             drag
