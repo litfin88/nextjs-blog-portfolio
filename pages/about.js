@@ -33,7 +33,7 @@ export default function about({ achivements }){
                         <span className="hello_text">HELLO!</span>
                         
                         {/* Edit this section for your name */}
-                        <p>I am <b>Emirhan Kurşun</b></p>
+                        <h1>I am <b>Emirhan Kurşun</b></h1>
                         <p style={{fontSize: "16px", marginBottom: "20px", marginTop: "5px"}}>Frontend Developer, Game Developer and Designer</p>
                         <span className="divider" > ‎</span>
                         <br />
@@ -203,7 +203,8 @@ export default function about({ achivements }){
                                 }
                             }
 
-                            p{
+                            h1{
+                                font-weight: 400;
                                 font-size:32px;
                                 color: var(--foreground);
                                 margin-top:20px;
