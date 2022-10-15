@@ -47,7 +47,7 @@ const header = () => {
                     width:500px;
                     background:gray;
                     position:absolute;
-                    z-index:10;
+                    z-index:99;
     
                     button{
                         position: absolute;
@@ -85,6 +85,7 @@ const header = () => {
                     padding:0 25%;
                     top:0;
                     transition: 100ms all;
+                    z-index: 99;
     
                     @media (pointer:none), (pointer:coarse) {
                         padding:0;

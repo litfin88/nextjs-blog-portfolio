@@ -41,7 +41,7 @@ export default function about({ achivements }){
 
                             {/* Edit this section for your infos */}
                             <p><b>Location: </b>Istanbul/Turkey</p>
-                            <p><b>Email: </b>krsn.emirhan@gmail.com</p>
+                            <p><b>Email: </b>contact@emirhankursun.com</p>
                             <p><b>Birthday: </b>17.12.2004</p>
                         </div>
                         <div>
