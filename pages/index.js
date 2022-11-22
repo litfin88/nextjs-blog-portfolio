@@ -145,7 +145,7 @@ export default function Home() {
           </div>
           
           {/* For LinkedIn */}
-          <div onClick={()=>window.open("https://www.linkedin.com/in/emirhan-kur%C5%9Fun-037a3b206", "_blank")} className="social_button">
+          <div onClick={()=>window.open("https://linkedin.com/in/krsnemirhan", "_blank")} className="social_button">
             <p>
               <FaLinkedin />
             </p>
