@@ -12,7 +12,6 @@ import {
   FaLinkedin,
 } from "react-icons/fa";
 
-
 const TypingAnimation = React.memo(
   () => {
     return (
@@ -20,18 +19,18 @@ const TypingAnimation = React.memo(
         loop={3}
         wrapper="h2"
         steps={[
-          "Frontend Developer",
-          2000,
           "Game Developer",
+          2000,
+          "Frontend Developer",
           2000,
           "3D Designer",
           2000,
         ]}
       />
-    )
+    );
   },
   (props, prevProps) => true
-)
+);
 
 export default function Home() {
   const { theme, setTheme } = useTheme();
@@ -40,7 +39,10 @@ export default function Home() {
     <div>
       <Head>
         <title>Portfolio - Main Page</title>
-        <meta name="description" content="With this website, you can have information about me and browse my blogs." />
+        <meta
+          name="description"
+          content="With this website, you can have information about me and browse my blogs."
+        />
         <meta name="robots" content="index, follow" />
 
         {/* If you have a logo, write it in this section. "emirhank.png" is the logos for the white theme,
@@ -49,7 +51,6 @@ export default function Home() {
         <link
           rel="icon"
           type="image/x-icon"
-
           href={
             "/image/" +
             (theme === "light" ? "emirhank.png" : "emirhank_white.png")
@@ -84,7 +85,7 @@ export default function Home() {
 
           {/* EDIT HERE AND PUT YOUR NAME */}
           <h1 className="text-green-500">EMIRHAN KURSUN</h1>
-          
+
           <div className="typical_text">
             <TypingAnimation />
           </div>
@@ -110,42 +111,83 @@ export default function Home() {
               // Navigate the site with the navigation buttons.
             </p>
             <br />
-            <p style={{ color: "#808080" }}>`<Link href="/certificates"><a style={{color: "#2c2aa3", fontFamily: "Fira Code", textDecoration: "none", fontSize: "16px"}}>{"${"}<a style={{color: "#499fd6", fontFamily: "Fira Code"}}>Click</a>{"}"}</a></Link>` // to see my certificates, thanks.</p>
+            <p style={{ color: "#808080" }}>
+              `
+              <Link href="/certificates">
+                <a
+                  style={{
+                    color: "#2c2aa3",
+                    fontFamily: "Fira Code",
+                    textDecoration: "none",
+                    fontSize: "16px",
+                  }}
+                >
+                  {"${"}
+                  <a style={{ color: "#499fd6", fontFamily: "Fira Code" }}>
+                    Click
+                  </a>
+                  {"}"}
+                </a>
+              </Link>
+              ` // to see my certificates, thanks.
+            </p>
             <br />
             <p className="waiting_for_write">|</p>
           </div>
           {/* EDIT HERE AND PUT YOUR SOCIAL ACCOUNT LINKS */}
 
           {/* For Instagram */}
-          <div onClick={()=>window.open("https://www.instagram.com/krsn.emirhan/", "_blank")} className="social_button">
+          <div
+            onClick={() =>
+              window.open("https://www.instagram.com/krsn.emirhan/", "_blank")
+            }
+            className="social_button"
+          >
             <p>
               <FaInstagram />
             </p>
           </div>
 
           {/* For Telegram */}
-          <div onClick={()=>window.open("https://t.me/scalebit", "_blank")} className="social_button">
+          <div
+            onClick={() => window.open("https://t.me/scalebit", "_blank")}
+            className="social_button"
+          >
             <p>
               <FaTelegram />
             </p>
           </div>
 
           {/* For Medium */}
-          <div onClick={()=>window.open("https://medium.com/@krsn.emirhan", "_blank")} className="social_button">
+          <div
+            onClick={() =>
+              window.open("https://medium.com/@krsn.emirhan", "_blank")
+            }
+            className="social_button"
+          >
             <p>
               <FaMedium />
             </p>
           </div>
 
           {/* For Github */}
-          <div onClick={()=>window.open("https://github.com/litfin88", "_blank")} className="social_button" style={{ float: "right" }}>
+          <div
+            onClick={() => window.open("https://github.com/litfin88", "_blank")}
+            className="social_button"
+            style={{ float: "right" }}
+          >
             <p>
               <FaGithub />
             </p>
           </div>
-          
+
           {/* For LinkedIn */}
-          <div onClick={()=>window.open("https://linkedin.com/in/krsnemirhan", "_blank")} className="social_button">
+          <div
+            onClick={() =>
+              window.open("https://linkedin.com/in/krsnemirhan", "_blank")
+            }
+            className="social_button"
+          >
             <p>
               <FaLinkedin />
             </p>
@@ -155,7 +197,7 @@ export default function Home() {
 
       <style jsx>
         {`
-          .footer{
+          .footer {
             display: none !important;
           }
 
@@ -171,17 +213,22 @@ export default function Home() {
             }
           }
 
-          .typical_text{
-            background: linear-gradient(90deg, rgba(248,0,255,1) 0%, rgba(169,48,212,1) 49%, rgba(132,0,255,1) 100%);
+          .typical_text {
+            background: linear-gradient(
+              90deg,
+              rgba(248, 0, 255, 1) 0%,
+              rgba(169, 48, 212, 1) 49%,
+              rgba(132, 0, 255, 1) 100%
+            );
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             font-style: normal;
-            width:300px;
+            width: 300px;
             margin: 10px 0;
-            
+
             h2 {
-              font-size:24px;
+              font-size: 24px;
               font-weight: 400;
             }
           }
@@ -264,7 +311,7 @@ export default function Home() {
             }
 
             p {
-              font-family: "Fira Code", sans-serif ;
+              font-family: "Fira Code", sans-serif;
               font-weight: 400;
 
               span {
