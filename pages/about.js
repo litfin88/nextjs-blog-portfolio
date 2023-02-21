@@ -118,8 +118,6 @@ export default function about({ achivements }) {
         <p style={{ lineHeight: "1.6", fontFamily: "Open Sans" }}>
           Hello, I am Emirhan Kurşun. I was born on December 17, 2004 in a
           village in Nevşehir. I completed my high school education in Istanbul.
-          I won my first award by winning a medal in the wrestling competition
-          in middle school.
           <br />
           <br />I started my software life at the age of 12 and since then I
           have been developing various software. Beginning with game
@@ -128,8 +126,7 @@ export default function about({ achivements }) {
           <br />
           My first game that I published professionally in the "hypercasual"
           category was the game 'Space Ball'. I received various comments about
-          the game and continued to improve myself. I am actively working on
-          cloud/blockchain storage system and blockchain-based game sales
+          the game and continued to improve myself. I am actively working on crypto-based indie game sales
           platform.
         </p>
         <h2 style={{ margin: "40px 0 20px 0" }}>- SKILLS -</h2>
