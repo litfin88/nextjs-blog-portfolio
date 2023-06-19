@@ -139,7 +139,7 @@ export default function Home() {
           {/* For Instagram */}
           <div
             onClick={() =>
-              window.open("https://www.instagram.com/krsn.emirhan/", "_blank")
+              window.open("https://www.instagram.com/krsnemirhan/", "_blank")
             }
             className="social_button"
           >
