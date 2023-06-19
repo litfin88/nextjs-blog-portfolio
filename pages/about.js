@@ -71,7 +71,7 @@ export default function about({ achivements }) {
               <div
                 onClick={() =>
                   window.open(
-                    "https://www.instagram.com/krsn.emirhan/",
+                    "https://www.instagram.com/krsnemirhan/",
                     "_blank"
                   )
                 }
