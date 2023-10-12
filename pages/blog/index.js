@@ -5,6 +5,7 @@ import { useTheme } from "next-themes";
 
 const Home = ({blogs}) => {
     const { theme, setTheme } = useTheme();
+    const reversedBlogs = blogs.reverse();
 
     return (
         <div className="content">
@@ -25,7 +26,7 @@ const Home = ({blogs}) => {
             </Head>
 
             <div>
-                {blogs.toReversed().map(blog=>(
+                {reversedBlogs.map(blog=>(
                     <BlogTab key={blog.id} blog={blog} />
                 ))}
             </div>
