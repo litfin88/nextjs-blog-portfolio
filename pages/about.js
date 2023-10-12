@@ -140,7 +140,7 @@ export default function about({ achivements }) {
           <Skill name="ui design (figma)" percent={80} />
         </div>
         <h2 style={{ margin: "40px 0 20px 0" }}>- ACHIVEMENTS -</h2>
-        {achivements.reverse().map((achiv) => (
+        {achivements.toReversed().map((achiv) => (
           <div className="achivement_tab" key={achiv.id}>
             <p>{achiv.name}</p>
             <p style={{ fontSize: "0.8em" }}>({achiv.year})</p>
