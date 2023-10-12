@@ -4,7 +4,7 @@ import { graphcms } from "../client";
 export const getAllAchivements = async () => {
     const getAllAchivementsQuery = gql`
     query GetPostDetails() {
-      achivements(orderBy: "id") {
+      achivements {
         id
         name
         year
