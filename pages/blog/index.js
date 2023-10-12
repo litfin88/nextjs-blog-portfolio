@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 
 const Home = ({blogs}) => {
     const { theme, setTheme } = useTheme();
-    const reversedBlogs = blogs.reverse();
+    const reversedBlogs = [...blogs].reverse();
 
     return (
         <div className="content">

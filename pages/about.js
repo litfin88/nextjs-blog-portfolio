@@ -8,7 +8,7 @@ import { getAllAchivements } from "../functions/getAllAchivements";
 
 export default function about({ achivements }) {
   const { theme, setTheme } = useTheme();
-  const reversedAchivements = achivements.reverse();
+  const reversedAchivements = [...achivements].reverse();
 
   return (
     <div>
