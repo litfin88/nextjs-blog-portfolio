@@ -4,7 +4,7 @@ import { graphcms } from "../client";
 export const getAllBlogs = async () => {
     const getAllBlogsQuery = gql`
     query GetPostDetails {
-        blogs(orderBy: {id: CREATED_AT, direction: ASC}) {
+        blogs(orderBy: "id") {
             id
             title
             slug
