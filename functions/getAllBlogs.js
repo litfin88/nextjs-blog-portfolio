@@ -3,8 +3,8 @@ import { graphcms } from "../client";
 
 export const getAllBlogs = async () => {
     const getAllBlogsQuery = gql`
-    query GetPostDetails(order_by:{id: desc}) {
-        blogs {
+    query GetPostDetails {
+        blogs(order_by:{id: desc}) {
             id
             title
             slug
