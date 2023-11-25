@@ -117,18 +117,13 @@ export default function about({ achivements }) {
 
         {/* Edit this section for your biography */}
         <p style={{ lineHeight: "1.6", fontFamily: "Open Sans" }}>
-          Hello, I am Emirhan Kurşun. I was born on December 17, 2004 in a
-          village in Nevşehir. I completed my high school education in Istanbul.
+          Hello, I am Emirhan. I was born on December 17, 2004 in Nevşehir. I finished my high school education in Istanbul and currently I am a student at Istanbul Aydin University, Digital Game Design Department.
           <br />
-          <br />I started my software life at the age of 12 and since then I
-          have been developing various software. Beginning with game
-          development, I've made gains on a variety of topics and I'm actively
-          involved in web development. <br />
           <br />
-          My first game that I published professionally in the "hypercasual"
-          category was the game 'Space Ball'. I received various comments about
-          the game and continued to improve myself. I am actively working on crypto-based indie game sales
-          platform.
+          I started my software life at the age of 12 and since then I have been developing various software. Starting with game development, I've made progress in a variety of topics and I'm actively involved in web development. 
+          <br />
+          <br />
+          My first game that I published professionally in the "hypercasual" category was the game 'Space Ball'. I received a lot of comments about the game and improved it. I am actively working on a crypto-based indie game distribution platform.
         </p>
         <h2 style={{ margin: "40px 0 20px 0" }}>- SKILLS -</h2>
         <div>
