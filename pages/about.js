@@ -117,22 +117,19 @@ export default function about({ achivements }) {
 
         {/* Edit this section for your biography */}
         <p style={{ lineHeight: "1.6", fontFamily: "Open Sans" }}>
-          Hello, I am Emirhan. I was born on December 17, 2004 in Nevşehir. I finished my high school education in Istanbul and currently I am a student at Istanbul Aydin University, Digital Game Design Department.
+          Creative and self-driven game developer with 5+ years of experience in game design, 3D asset production, and Unity development. Strong foundation in game-optimized 3D asset/prop design, character design, animation, and game mechanics.
           <br />
           <br />
-          I started my software life at the age of 12 and since then I have been developing various software. Starting with game development, I've made progress in a variety of topics and I'm actively involved in web development. 
-          <br />
-          <br />
-          My first game that I published professionally in the "hypercasual" category was the game 'Space Ball'. I received a lot of comments about the game and improved it. I am actively working on a crypto-based indie game distribution platform.
+          Actively leading and developing projects for PC platforms. Passionate about building immersive worlds and engaging player experiences.
         </p>
         <h2 style={{ margin: "40px 0 20px 0" }}>- SKILLS -</h2>
         <div>
-          <Skill name="unity 3d" percent={85} />
-          <Skill name="blender & modeling" percent={90} />
-          <Skill name="substance painter" percent={65} />
-          <Skill name="html & js & css" percent={85} />
-          <Skill name="c#" percent={75} />
-          <Skill name="react.js" percent={70} />
+          <Skill name="unity 3d" percent={90} />
+          <Skill name="character art (zbrush)" percent={80} />
+          <Skill name="blender & 3d asset creation" percent={90} />
+          <Skill name="substance painter" percent={75} />
+          <Skill name="html & js & css" percent={75} />
+          <Skill name="mono c#" percent={75} />
           <Skill name="ui design (figma)" percent={80} />
         </div>
         <h2 style={{ margin: "40px 0 20px 0" }}>- ACHIVEMENTS -</h2>
